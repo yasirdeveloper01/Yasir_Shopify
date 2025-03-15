@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Blog - Never Stop Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+ 
+ body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background:linear-gradient(to right,#CDE8FD, #FFFFF2);
+    transition: background 0.3s ease-in-out;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin-left: 100px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.5s ease-in-out;
+}
+
+.navbar li {
+    margin: 0 50px;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s ease, background-color 0.3s ease;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    color: greenyellow;
+}
+
+.navbar a.active { 
+
+    color: greenyellow;
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+}
+
+hr{
+    display: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blog-head1 {
+    margin-top: 55px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards, glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px rgba(255, 255, 0, 0.8);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 255, 0, 1);
+    }
+}
+
+.blog-head1 span {
+    background-color: rgba(0, 0, 139, 0.5);
+    color: yellow;
+    font-size: 24px;
+    padding: 10px;
+    display: inline-block;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out, background-color 0.4s ease;
+}
+
+.blog-head1 span:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 139, 0.7);
+}
+
+#head-4 {
+    color: green;
+    padding: 2px 10px;
+    font-size: 18px;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.7s forwards;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    animation: slideIn 1.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+td {
+    text-align: left;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+td:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.02);
+}
+
+td h2 {
+    color: darkmagenta;
+    font-size: 20px;
+    margin: 20px 20px 10px 100px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.9s forwards;
+}
+
+td p {
+    white-space: collapse;
+    margin: 10px 20px 10px 19px;
+    line-height: 1.4;
+    padding: 2px 80px;
+    font-size: 18px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
+}
+
+td h2, td p {
+    width: 70%;
+    text-align: left;
+}
+
+td img {
+    width: 220px;
+    height: 150px;
+    border-radius: 10px;
+    display: block;
+    margin: 60px 80px auto 20px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease;
+}
+
+td img:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1.15) translateY(0);
+    }
+    50% {
+        transform: scale(1.2) translateY(-8px);
+    }
+}
+
+#p1, #p2 {
+    padding: 2px 10px;
+    font-size: 18px;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.2s forwards;
+    transition: color 0.3s ease;
+}
+
+#p1:hover, #p2:hover {
+    color: darkblue;
+}
+
+.footer {
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+  color: #333;
+  padding: 20px 20px 0px 0px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px 10px 30px 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* Reduced gap between elements */
+}
+.contactul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures proper left alignment */
+  gap: 5px;
+  margin: 0; /* Remove extra margin */
+  padding: 0; /* Remove any default padding */
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Uniform spacing between icon and text */
+  justify-content: flex-start;
+  width: 100%; /* Ensures full width alignment */
+}
+.footer-section ul li a {
+    color: darkblue;
+    margin: 2px 10px;
+    padding-top: 2px;
+    text-decoration: none;
+}
+.footer-section ul li a:hover{
+    color: red;
+}
+.footer-section ul li i {
+  margin-right: 5px; /* Reduce unnecessary spacing */
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center; /* Ensures icons align properly */
+}
+.footer-section h3 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right:30px; /* Reduced bottom margin */
+  text-align: center;
+}
+
+.footer-section h3::after {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 2px;
+  background: darkred;
+  margin-top: 3px;
+  margin-left:2px; /* Reduced spacing after underline */
+  animation: slideIn 3s ease-in-out forwards;
+}
+
+ @keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px; /* Expands to 60px */
+  }
+}
+
+.contactul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Reduced gap between contact details */
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Reduced gap between icons */
+  margin-top: 2px;
+  margin-left:10px; /* Reduced top margin */
+}
+
+.social-icons a {
+  color: darkblue;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: black;
+  color: white;
+  margin: 0px; /* Removed all margins */
+}
+
+.footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(-45deg);
+      animation: moveBackground 10s infinite linear;
+        pointer-events: none; /* Add this line */
+
+    }
+
+    @keyframes moveBackground {
+      0% {
+        transform: translateX(-50%) rotate(-45deg);
+      }
+      100% {
+        transform: translateX(50%) rotate(-45deg);
+      }
+    }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 5px;
+    gap: 8px; /* Adjusted spacing for smaller screens */
+  }
+
+  .footer-section h3 {
+    text-align: center;
+    margin-bottom: 3px;
+    font-size:20px; /* Further reduced margin */
+  }
+
+  .footer-section ul li{
+    font-size: 14px;
+  }
+
+  .social-icons {
+    margin-top: 3px; /* Further reduced top margin */
+  }
+  .footer-bottom{
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+
+ .toggle-container {
+            position: fixed;
+            top: 12px;
+            right: 20px;
+            z-index: 2000;
+        }
+        .toggle-container button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: yellow;
+            transition: color 0.3s;
+        }
+        .toggle-container button:hover {
+            color: red;
+        }
+        
+    .dark-mode {
+    background: #333;
+    color: white;
+}
+
+.dark-mode .navbar {
+    background-color: ;
+}
+
+.dark-mode td h2, .dark-mode #head-4 {
+    color: cyan;
+}
+
+.dark-mode .blog-head1 {
+    position: relative;
+}
+
+.dark-mode .toggle-container button {
+    color: red;
+}
+
+.dark-mode .toggle-container button:hover {
+    color: yellow;
+}
+
+.dark-mode footer {
+    background: #111;
+}
+.dark-mode .hamburger{
+    color: greenyellow;
+}
+.dark-mode .footer-section ul li a, .dark-mode .footer-section, .dark-mode .social-icons a {
+color: white;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+    .navbar {
+        background: none;
+    }
+
+    /* Default hidden state */
+    .navbar ul {
+        position: absolute;
+        top: -15px;
+        left: -120px; /* Keeping original position */
+        width: 30%; /* Keeping original width */
+        max-width: 90vw; /* Ensures it does not exceed screen width */
+        background-color: darkred;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0px 20px 0px;
+        max-height: 0; /* Initially hidden */
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out, transform 0.7s ease-in-out;
+        transform: translateY(-20px);
+        display: flex;
+    }
+
+    .navbar ul li {
+        text-align: center; /* Center text inside each list item */
+        width: 100%; /* Ensure equal width for all */
+        padding: 2px 0px 8px 0px;
+    }
+
+    .navbar ul li a {
+        color: white;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        width: 100%; /* Helps align text properly */
+        padding: 8px 0;
+    }
+
+    .navbar ul.show {
+        max-height: 500px; /* Adjust based on content */
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* When menu is closing (slowly sliding up) */
+    .navbar ul.hide {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    /* Hamburger button */
+    .hamburger {
+        display: block;
+        z-index: 10000;
+        color: white;
+    }
+
+    /* Style for the hr divider */
+    .menu-divider {
+    width: 60%; /* Keep it within a controlled width */
+    max-width: 180px; /* Set a max width */
+    border: none;
+    height: 2px;
+    background-color: yellow;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    margin: 10px auto 25px auto; /* Ensures perfect centering */
+    display: block; /* Ensures correct centering behavior */
+}
+
+
+    /* Show hr when menu is active */
+    .navbar ul.show + .menu-divider {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+
+
+   
+    #p1, #p2, #head-4 {
+        font-size: 17px;
+        max-width: 80%;
+    }
+    table {
+        display: block;
+    }
+    td {
+        display: block;
+        text-align: center;
+    }
+    td h2, td p {
+        width: 70%;
+        text-align: left;
+    }
+    td img {
+        max-width: 280px;
+        height: 180px;
+        margin: 20px auto;
+    }
+    .blog-head1 span {
+        font-size: 20px;
+        padding: 8px;
+    }
+    td p {
+        font-size: 16px;
+
+    }
+    td h2{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-head1 span {
+        font-size: 17px;
+        padding: 7px;
+    }
+    #p1, #p2, #head-4 {
+        font-size: 16px;
+    }
+
+    td{
+        margin-right: 30px;
+    }
+
+    td p {
+        font-size: 15px;
+
+    }
+    td h2{
+        font-size: 16px;
+    }
+     td img {
+        max-width: 250px;
+        height: 170px;
+    }
+    .navbar ul{
+        width: 30%;
+    }
+
+}
+@media (max-width: 650px) {
+.blog-head1 span {
+        font-size: 16px;
+        padding: 7px;
+    }
+     #head-4, #p2 {
+        font-size: 15px;
+    }
+    #p1{
+        font-size: 16px;
+    }
+
+    td h2{
+        margin-left: 60px;
+        font-size: 14px;
+    }
+   td p {
+        width: 90%;
+        margin-left: -20px;
+        font-size: 15px;
+    }
+
+     td img {
+        max-width: 200px;
+        height: 150px;
+    }
+    .navbar ul{
+        width: 33%;
+    }
+}
+@media (max-width: 600px) {
+.blog-head1 span {
+        font-size: 14px;
+        padding: 6px;
+    }
+    @media (max-width: 530px){
+      .blog-head1 span {
+        font-size: 12px;
+        padding: 6px;
+    } 
+     #head-4, #p2 {
+        font-size: 14px;
+    }
+    #p1{
+        font-size: 15px;
+    }
+
+    td h2{
+        margin-left: 60px;
+        font-size: 13px;
+    }
+   td p {
+        width: 90%;
+        margin-left: -20px;
+        font-size: 14px;
+    } 
+    
+     td img {
+        max-width: 180px;
+        height: 130px;
+    }
+    .footer-bottom{
+    font-size: 14px;
+  }
+
+    }
+    @media (max-width: 500px) {
+    body {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.footer-section h3 {
+    font-size:18px; 
+  }
+
+}
+@media (max-width: 480px) {
+    
+    td img {
+        max-width: 170px;
+        height: 120px;
+    }
+    #head-4, #p2 {
+        font-size: 13px;
+    }
+    #p1{
+        font-size: 14px;
+    }
+    td p {
+        margin-left: -40px;
+    }
+    td h2{
+        margin-left: 38px;
+    }
+    .footer-bottom{
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 430px) {
+    
+    td img {
+        max-width: 160px;
+        height: 110px;
+    }
+    #head-4, #p2 {
+        font-size: 13px;
+    }
+    #p1{
+        font-size: 14px;
+    }
+    td p {
+        margin-left: -40px;
+        font-size: 13px;
+    }
+    td h2{
+        margin-left: 38px;
+        font-size: 12px;
+    }
+
+@media (max-width: 400px) {
+
+    .blog-head1{
+        text-align: left;
+            }
+            .blog-head1 span{
+                margin-left: 1px;
+            }
+            .footer-bottom{
+    font-size: 12px;
+  }
+  .footer-section h3 {
+    font-size:17px; 
+  }
+  td img{
+    width: 150px;
+    height: 100px;
+  }
+}
+@media (max-width: 300px) {
+ .footer-section ul li{
+    font-size: 10px;
+ }
+    .footer-bottom{
+    font-size: 10px;
+  }
+  .footer-section h3 {
+    font-size:16px; 
+  }
+  td p{
+    margin-left: -50px;
+    width: 95%;
+  }
+  td{
+    margin-top: -24px;
+  }
+}
+@media (max-width: 250px) {
+    td p{
+    margin-left: -70px;
+    width: 95%;
+  }
+}
+  
+  @media (max-width: 220px) {
+    #p1, #p2, #head-4 {
+        font-size: 13px;
+        padding: 5px 10px;
+        max-width: 99%;
+    }
+    td p {
+        font-size: 12px;
+        padding: 2px;
+        margin: 10px;
+        max-width: 99%;
+
+    }
+    td h2{
+        font-size: 13px;
+        padding: 5px 10px;
+        max-width: 80%;
+    }
+    td img{
+        width: 130px;
+        height: 75px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+     <div class="toggle-container">
+        <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+    </div>
+<!-- Navbar -->
+<nav class="navbar">
+     <button class="hamburger" onclick="toggleMenu()">☰</button>
+   
+<ul id="nav-menu">
+     <hr class="menu-divider">
+        <li><a href="index.html#home" class="nav-link" data-title="Home - My Website">Home</a></li>
+        <li><a href="index.html#about" class="nav-link" data-title="About Us - My Website">About</a></li>
+        <li><a href="index.html#services" class="nav-link" data-title="Our Services - My Website">Services</a></li>
+        <li><a href="index.html#blog" class="nav-link" data-title="Blog - My Website">Blog</a></li>
+    <li><a href="index.html#contact" class="nav-link" data-title="Contact Us - My Website">Contact</a></li>
+    </ul>
+</nav>
+
+
+    <div class="heading-container">
+    <h1 class="blog-head1"><span>The Science of Web Development: Building High-Performance Websites</span></h1>
+</div>
+    <p id="p1">
+        In today's fast-paced digital world, a high-performance website is essential for success. Users expect websites to load quickly, function seamlessly, and provide an engaging experience. But what goes into building a website that not only looks great but also performs exceptionally well?</p>
+<p id="p2">Let's explore the science behind web development and the key strategies for creating high-performance websites.</p>
+    <div class="container">
+        <table>
+            <tr>
+                <td><h2>Understanding Web Performance: </h2>
+                    <p>Web performance refers to how quickly and efficiently a website loads and operates. A well-optimized website ensures a smooth user experience, better search engine rankings, and increased conversion rates. Factors such as page speed, responsiveness, and accessibility all contribute to web performance.</p>
+                </td>
+                <td><img src="pics/webblog1.jpg" alt="Curiosity"></td>
+            </tr>
+            <tr>
+<td><h2 style="color:darkred;">Key Factors in High-Performance Web Development: </h2><h2>1. Efficient Code Structure</h2>
+<p> 
+<b>Well-written, clean, and structured code is the foundation of a high-performance website. Developers should:</b><br>
+Minimize the use of unnecessary code and avoid redundant elements.<br>
+Use efficient algorithms to optimize performance.<br>
+Follow best coding practices, such as modular and reusable code structures.
+</p>
+</td>
+                <td><img src="pics/webblog2.jpg" alt="Learning"></td>
+            </tr>
+            <tr>
+                <td><h2>2. Optimized Images and Media</h2>
+<p> 
+<b>Large images and videos can significantly slow down a website. To optimize media:</b><br>
+Use modern formats like WebP instead of traditional JPEG and PNG.<br>
+Implement lazy loading to defer offscreen images.<br>
+Compress images using tools like TinyPNG or ImageOptim.
+</p>
+</td>
+                <td><img src="pics/webblog3.jpg" alt="Freelancer"></td>
+            </tr>
+            <tr>
+
+                <td><h2>3. Minimizing HTTP Requests</h2>
+<p> 
+<b>Each request made to the server adds to the loading time. To reduce HTTP requests:</b><br>
+Use CSS sprites to combine multiple images into one file.<br>
+Minimize the number of external scripts and stylesheets.<br>
+Combine and minify CSS and JavaScript files.
+</p>
+</td>
+               <td><img src="pics/webblog4.jpg" alt="Innovation"></td>
+</tr>
+
+ <tr>
+                <td><h2>4. Effective Caching Strategies</h2>
+<p> 
+<b>Caching allows browsers to store website resources locally, reducing the need to download them on subsequent visits. Strategies include:</b><br>
+Browser caching: Setting expiration headers for static files.<br>
+Server-side caching: Storing database queries and dynamic content.<br>
+CDN caching: Delivering cached versions of frequently requested resources.
+</ul>
+</p>
+</td>
+               <td><img src="pics/webblog4-5.jpg" alt="Innovation"></td>
+            </tr>
+
+      <tr>
+                <td><h2>5. Mobile Optimization</h2>
+<p> 
+<b>With the increasing use of mobile devices, websites must be responsive and mobile-friendly. Key practices include:</b><br>
+Using responsive design techniques with CSS media queries.<br>
+Optimizing touch interactions and button sizes.<br>
+Implementing Accelerated Mobile Pages (AMP) for faster mobile experiences.
+</p>
+</td>
+               <td><img src="pics/webblog5.jpg" alt="Innovation"></td>
+            </tr>
+
+     <tr>
+               <td><h2>6. Asynchronous and Deferred Loading</h2>
+<p> 
+<b>Loading resources asynchronously prevents them from blocking page rendering. JavaScript files should be loaded using:</b><br>
+async for scripts that can run independently.<br>
+defer for scripts that execute after HTML parsing.
+</p>
+</td>
+               <td><img src="pics/webblog6.jpg" alt="Innovation"></td>
+            </tr>
+<tr>
+ <td><h2>7. Server-Side Optimization</h2>
+    <p> 
+<b>A well-configured server plays a vital role in website performance. Best practices include:</b><br>
+Choosing a high-performance hosting provider.<br>
+Enabling Gzip compression to reduce file sizes.<br>
+Using a lightweight and efficient web server like Nginx or LiteSpeed.
+</p>
+</td>
+<td><img src="pics/webblog7.jpg" alt="Innovation"></td>
+</tr>
+
+<tr>
+ <td><h2>Conclusion: </h2>
+<p>
+The science of web development is a blend of technical expertise and strategic implementation. By focusing on code efficiency, media optimization, caching, and server performance, developers can build high-performance websites that deliver exceptional user experiences. A well-optimized website not only attracts more visitors but also improves engagement, conversions, and overall business success.<br>
+Are you ready to apply these strategies to your next web development project? Start optimizing today and watch your website reach new heights!</p>
+</td>
+</tr>
+
+        </table>
+    </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Newsletter Subscription (Left) -->
+      <div class="footer-section newsletter">
+        <ul>
+            <li><a href="myjourney.html">Where Passion Meets Profession: My Journey as a Web Developer
+</a></li>
+            <li><a href="webblog.html">The Science of Web Development: Building High-Performance Websites
+</a></li>
+            <li><a href="webdevelop.html">Strategic Thinking in Developement: Seeing the Bigger Picture
+</a></li>
+            <li><a href="webblog1.html">Building Businesses with Code: The Developer’s Impact
+</a></li>
+            </ul>
+      </div>
+
+     
+      <!-- Contact Details (Right) -->
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <ul class="contactul">
+          <li><i class="fas fa-phone"></i>+92 336 0799177</li>
+          <li><i class="fas fa-envelope"></i>myasirdeveloper01@gmail.com</li>
+        </ul>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/muhammad-yasir-b48171270/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://web.facebook.com/myasir0349/"><i class=" fab fa-facebook-f"></i></a>
+          <a href="https://youtube.com/@workfor24hours?si=1i3-gdDUoSx0NfZ8"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/myasir1285/"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/Yasir_Arif0304"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div></footer>
+
+          <div class="footer-bottom">
+      &copy; 2025 Muhammad Yasir &reg; All rights reserved. 
+    </div>
+  <!-- Font Awesome Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#darkModeToggle').click(function(){
+                $('body').toggleClass('dark-mode');
+            });
+            
+            
+        });
+
+    // Get all navigation links
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            // Change browser title
+            document.title = this.getAttribute("data-title");
+
+            // Remove 'active' class from all links
+            navLinks.forEach(l => l.classList.remove("active"));
+
+            // Add 'active' class to clicked link
+            this.classList.add("active");
+        });
+    });
+
+
+
+function toggleMenu() {
+    let menuButton = document.querySelector(".hamburger");
+    let menu = document.querySelector(".navbar ul");
+    let divider = document.querySelector(".menu-divider");
+
+    divider.classList.toggle("show"); // Toggle hr visibility
+
+
+    if (menu.classList.contains("show")) {
+        divider.style.opacity = "0"; 
+        divider.style.transform = "scaleX(0)";
+        menu.classList.remove("show");
+        menu.classList.add("hide");
+        menuButton.textContent = "☰";
+        menuButton.style.color = "red";
+setTimeout(() => { menu.classList.remove("hide");  }, 500);
+
+    } else {
+        menu.classList.add("show");
+        divider.style.opacity = "1";   // Show hr
+        divider.style.transform = "scaleX(1)";
+        menuButton.textContent = "✖";
+        menuButton.style.color = "yellow";
+    }
+}
+
+
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+
+
+
+    </script>
+</body>
+</html>
