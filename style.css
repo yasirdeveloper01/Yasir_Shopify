@@ -220,7 +220,7 @@ color: white;
 
 @media screen and (max-width: 1024px) {
    .navbar {
-        background-color: none;
+        background: none;
     }
 
     .navbar ul {
